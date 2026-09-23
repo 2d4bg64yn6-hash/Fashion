@@ -39,7 +39,7 @@ export default function Reports() {
             key={r.id}
             onClick={() => setActive(r.id)}
             className={cx(
-              'cursor-pointer rounded-2xl border bg-white p-4 text-left transition hover:shadow-md',
+              'cursor-pointer rounded-2xl border bg-surface p-4 text-left transition hover:shadow-md',
               active === r.id ? 'border-brand-500 ring-3 ring-brand-100' : 'border-slate-200/80',
             )}
           >

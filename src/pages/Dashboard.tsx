@@ -121,7 +121,7 @@ export default function Dashboard() {
           <tbody>
             {recent.map((o) => (
               <Tr key={o.id} onClick={() => go('sales', `open:${o.id}`)}>
-                <Td className="font-medium text-brand-700">{o.number}</Td>
+                <Td className="font-medium text-brand-300">{o.number}</Td>
                 <Td>{s.clientName(o.clientId)}</Td>
                 <Td right className="font-medium">{money(orderTotal(o.lines))}</Td>
                 <Td><StatusBadge status={o.status} /></Td>

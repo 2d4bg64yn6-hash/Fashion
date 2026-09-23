@@ -106,7 +106,7 @@ function ProductCard({ product: p, onClose }: { product: Product; onClose: () =>
         footer={<Button variant="secondary" icon={Pencil} onClick={() => setEditing(true)}>Редактировать</Button>}
       >
         <div className="mb-6 flex items-center gap-4 rounded-xl bg-slate-50 p-4">
-          <div className="grid size-14 place-items-center rounded-xl bg-white text-slate-400 ring-1 ring-slate-200">
+          <div className="grid size-14 place-items-center rounded-xl bg-surface text-slate-400 ring-1 ring-slate-200">
             <Package size={26} />
           </div>
           <div>

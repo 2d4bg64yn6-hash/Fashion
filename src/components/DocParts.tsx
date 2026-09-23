@@ -66,7 +66,7 @@ export function DocDrawer<S extends string>({
             onClick={() => onStatus(st)}
             className={cx(
               'flex cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-1.5 text-[13px] font-medium transition',
-              i === idx ? 'border-brand-500 bg-brand-50 text-brand-700' : i < idx ? 'border-slate-200 text-slate-500' : 'border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50',
+              i === idx ? 'border-brand-500 bg-brand-50 text-brand-300' : i < idx ? 'border-slate-200 text-slate-500' : 'border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50',
             )}
           >
             {i < idx && <Check size={14} className="text-emerald-500" />}

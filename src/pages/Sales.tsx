@@ -52,7 +52,7 @@ export default function Sales() {
           <tbody>
             {list.map((o) => (
               <Tr key={o.id} onClick={() => setOpenId(o.id)}>
-                <Td className="font-medium whitespace-nowrap text-brand-700">{o.number}</Td>
+                <Td className="font-medium whitespace-nowrap text-brand-300">{o.number}</Td>
                 <Td className="whitespace-nowrap">{s.clientName(o.clientId)}</Td>
                 <Td className="max-w-[320px] text-slate-500"><LinesSummary lines={o.lines} /></Td>
                 <Td right className="font-medium whitespace-nowrap">{money(orderTotal(o.lines))}</Td>

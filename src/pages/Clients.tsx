@@ -90,7 +90,7 @@ function ClientCard({ id, onClose }: { id: string; onClose: () => void }) {
           {orders.map((o) => (
             <li key={o.id} onClick={() => go('sales', `open:${o.id}`)} className="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 hover:bg-slate-50">
               <div>
-                <p className="text-sm font-medium text-brand-700">{o.number}</p>
+                <p className="text-sm font-medium text-brand-300">{o.number}</p>
                 <p className="text-xs text-slate-400">{date(o.date)} · {o.lines.length} поз.</p>
               </div>
               <div className="flex items-center gap-3">

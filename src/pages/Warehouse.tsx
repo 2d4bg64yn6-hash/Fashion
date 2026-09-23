@@ -39,7 +39,7 @@ export default function WarehousePage() {
           <button
             key={o.type}
             onClick={() => setOp(o.type)}
-            className="group flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-4 text-left transition hover:border-brand-200 hover:shadow-md"
+            className="group flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200/80 bg-surface p-4 text-left transition hover:border-brand-200 hover:shadow-md"
           >
             <span className={cx('grid size-10 place-items-center rounded-xl', o.cls)}><o.icon size={19} /></span>
             <span>

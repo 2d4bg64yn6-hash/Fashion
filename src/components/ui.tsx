@@ -19,7 +19,7 @@ export const dateTime = (iso: string) =>
 // ---------- базовые элементы ----------
 
 export function Card({ children, className, pad = true }: { children: ReactNode; className?: string; pad?: boolean }) {
-  return <div className={cx('rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)]', pad && 'p-5', className)}>{children}</div>
+  return <div className={cx('rounded-2xl border border-slate-200/80 bg-surface shadow-[0_1px_2px_rgba(15,23,42,0.04)]', pad && 'p-5', className)}>{children}</div>
 }
 
 export function CardHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: ReactNode }) {
@@ -39,10 +39,10 @@ export function Button({
   children, variant = 'primary', icon: Icon, className, size = 'md', ...rest
 }: { children?: ReactNode; variant?: BtnVariant; icon?: LucideIcon; size?: 'sm' | 'md' } & ButtonHTMLAttributes<HTMLButtonElement>) {
   const styles: Record<BtnVariant, string> = {
-    primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-sm',
-    secondary: 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50',
+    primary: 'bg-brand-600 text-white hover:bg-brand-500 shadow-[0_6px_20px_-6px_rgba(47,107,255,0.7)] ring-1 ring-inset ring-white/10',
+    secondary: 'bg-surface text-slate-700 border border-slate-200 hover:bg-slate-50',
     ghost: 'text-slate-600 hover:bg-slate-100',
-    danger: 'bg-rose-600 text-white hover:bg-rose-700',
+    danger: 'bg-rose-500 text-white hover:bg-rose-400',
   }
   return (
     <button
@@ -102,7 +102,7 @@ export const StatusBadge = ({ status }: { status: string }) => <Badge tone={stat
 // ---------- формы ----------
 
 const inputCls =
-  'h-9 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition focus:border-brand-500 focus:ring-3 focus:ring-brand-100'
+  'h-9 w-full rounded-lg border border-slate-200 bg-surface px-3 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition focus:border-brand-500 focus:ring-3 focus:ring-brand-100'
 
 export const Input = (p: InputHTMLAttributes<HTMLInputElement>) => <input {...p} className={cx(inputCls, p.className)} />
 export const Textarea = (p: TextareaHTMLAttributes<HTMLTextAreaElement>) => (
@@ -174,7 +174,7 @@ export function Tabs<T extends string>({ value, onChange, items }: { value: T; o
           onClick={() => onChange(it.id)}
           className={cx(
             'flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-1.5 text-[13px] font-medium transition',
-            value === it.id ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800',
+            value === it.id ? 'bg-surface text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800',
           )}
         >
           {it.label}
@@ -225,9 +225,9 @@ function useEsc(onClose: () => void) {
 export function Modal({ title, onClose, children, footer, wide }: { title: string; onClose: () => void; children: ReactNode; footer?: ReactNode; wide?: boolean }) {
   useEsc(onClose)
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/40 p-4 backdrop-blur-[2px] sm:items-center" onMouseDown={onClose}>
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-[2px] sm:items-center" onMouseDown={onClose}>
       <div
-        className={cx('my-8 w-full rounded-2xl bg-white shadow-2xl', wide ? 'max-w-3xl' : 'max-w-lg')}
+        className={cx('my-8 w-full rounded-2xl bg-surface shadow-2xl', wide ? 'max-w-3xl' : 'max-w-lg')}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4">
@@ -246,8 +246,8 @@ export function Modal({ title, onClose, children, footer, wide }: { title: strin
 export function Drawer({ title, subtitle, onClose, children, footer }: { title: string; subtitle?: ReactNode; onClose: () => void; children: ReactNode; footer?: ReactNode }) {
   useEsc(onClose)
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-slate-900/30 backdrop-blur-[1px]" onMouseDown={onClose}>
-      <div className="flex h-full w-full max-w-xl flex-col bg-white shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-[1px]" onMouseDown={onClose}>
+      <div className="flex h-full w-full max-w-xl flex-col bg-surface shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
         <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-6 py-5">
           <div className="min-w-0">
             <h2 className="text-lg font-semibold text-slate-900">{title}</h2>

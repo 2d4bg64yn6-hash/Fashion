@@ -52,7 +52,7 @@ export default function Purchases() {
           <tbody>
             {list.map((p) => (
               <Tr key={p.id} onClick={() => setOpenId(p.id)}>
-                <Td className="font-medium whitespace-nowrap text-brand-700">{p.number}</Td>
+                <Td className="font-medium whitespace-nowrap text-brand-300">{p.number}</Td>
                 <Td className="whitespace-nowrap">{s.supplierName(p.supplierId)}</Td>
                 <Td className="max-w-[320px] text-slate-500"><LinesSummary lines={p.lines} /></Td>
                 <Td right className="font-medium whitespace-nowrap">{money(orderTotal(p.lines))}</Td>

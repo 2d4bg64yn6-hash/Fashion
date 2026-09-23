@@ -81,14 +81,14 @@ export default function App() {
       title={collapsed ? label : undefined}
       className={cx(
         'group flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-        page === id ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
+        page === id ? 'bg-brand-600/15 text-brand-300 ring-1 ring-inset ring-brand-500/30' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
         collapsed && 'lg:justify-center lg:px-0',
       )}
     >
-      <Icon size={18} className={page === id ? 'text-brand-600' : 'text-slate-400 group-hover:text-slate-600'} />
+      <Icon size={18} className={page === id ? 'text-brand-300' : 'text-slate-400 group-hover:text-slate-600'} />
       <span className={cx('flex-1 text-left', collapsed && 'lg:hidden')}>{label}</span>
       {!!badges[id] && (
-        <span className={cx('tabular rounded-full bg-slate-100 px-1.5 text-[11px] text-slate-600', page === id && 'bg-brand-100 text-brand-700', collapsed && 'lg:hidden')}>
+        <span className={cx('tabular rounded-full bg-slate-100 px-1.5 text-[11px] text-slate-600', page === id && 'bg-brand-100 text-brand-300', collapsed && 'lg:hidden')}>
           {badges[id]}
         </span>
       )}
@@ -99,10 +99,10 @@ export default function App() {
     <NavContext.Provider value={{ page, intent, go, clearIntent: () => setIntent(undefined) }}>
       <div className="min-h-screen">
         {/* Боковое меню */}
-        {mobileOpen && <div className="fixed inset-0 z-30 bg-slate-900/30 lg:hidden" onClick={() => setMobileOpen(false)} />}
+        {mobileOpen && <div className="fixed inset-0 z-30 bg-black/60 lg:hidden" onClick={() => setMobileOpen(false)} />}
         <aside
           className={cx(
-            'fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-slate-200 bg-white transition-all lg:translate-x-0',
+            'fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-slate-200 bg-surface transition-all lg:translate-x-0',
             mobileOpen ? 'translate-x-0' : '-translate-x-full',
             collapsed && 'lg:w-[72px]',
           )}
@@ -147,7 +147,7 @@ export default function App() {
 
         {/* Контент */}
         <div className={cx('transition-all', collapsed ? 'lg:pl-[72px]' : 'lg:pl-64')}>
-          <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-slate-200/80 bg-white/80 px-4 backdrop-blur sm:px-8">
+          <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-slate-200/80 bg-surface/80 px-4 backdrop-blur sm:px-8">
             <button className="cursor-pointer rounded-lg p-2 text-slate-500 hover:bg-slate-100 lg:hidden" onClick={() => setMobileOpen(true)}>
               <Menu size={20} />
             </button>
@@ -156,7 +156,7 @@ export default function App() {
               <span className="font-medium text-slate-700">{[...NAV, { id: 'settings', label: 'Настройки' }, { id: 'profile', label: 'Профиль' }].find((n) => n.id === page)?.label}</span>
             </div>
             <div className="ml-auto flex items-center gap-2">
-              <button onClick={() => go('sales', 'new')} className="hidden h-9 cursor-pointer items-center gap-1.5 rounded-lg bg-brand-600 px-3.5 text-sm font-medium text-white shadow-sm hover:bg-brand-700 sm:inline-flex">
+              <button onClick={() => go('sales', 'new')} className="hidden h-9 cursor-pointer items-center gap-1.5 rounded-lg bg-brand-600 px-3.5 text-sm font-medium text-white shadow-[0_6px_20px_-6px_rgba(47,107,255,0.7)] hover:bg-brand-500 sm:inline-flex">
                 <Plus size={16} /> Новый заказ
               </button>
               <button
@@ -165,7 +165,7 @@ export default function App() {
                 className="relative cursor-pointer rounded-lg p-2 text-slate-500 hover:bg-slate-100"
               >
                 <Bell size={19} />
-                {lowStock > 0 && <span className="absolute top-1.5 right-1.5 size-2 rounded-full bg-rose-500 ring-2 ring-white" />}
+                {lowStock > 0 && <span className="absolute top-1.5 right-1.5 size-2 rounded-full bg-rose-500 ring-2 ring-surface" />}
               </button>
             </div>
           </header>
@@ -177,7 +177,7 @@ export default function App() {
         {/* Уведомления */}
         <div className="fixed right-4 bottom-4 z-[60] flex flex-col gap-2">
           {store.toasts.map((t) => (
-            <div key={t.id} className="flex items-center gap-2.5 rounded-xl bg-slate-900 px-4 py-3 text-sm text-white shadow-lg">
+            <div key={t.id} className="flex items-center gap-2.5 rounded-xl bg-slate-200 px-4 py-3 text-sm text-slate-900 ring-1 ring-slate-300 shadow-lg">
               {t.tone === 'success' ? <CheckCircle2 size={17} className="text-emerald-400" /> : <AlertCircle size={17} className="text-rose-400" />}
               {t.text}
             </div>

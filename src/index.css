@@ -1,16 +1,47 @@
 @import "tailwindcss";
 
+/* Тёмная тема: палитра slate инвертирована (50 — фон, 900 — самый светлый текст),
+   цветные шкалы 50–200 — тёмные подложки, 600–700 — яркий текст. */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-50: #eef4ff;
-  --color-brand-100: #dbe6fe;
-  --color-brand-500: #3b6cf6;
-  --color-brand-600: #2553e8;
-  --color-brand-700: #1d42c4;
+
+  --color-surface: #0f1729;
+
+  --color-slate-50: #080d1a;
+  --color-slate-100: #16213a;
+  --color-slate-200: #1f2b47;
+  --color-slate-300: #2d3b5c;
+  --color-slate-400: #6d7c9c;
+  --color-slate-500: #8e9bb7;
+  --color-slate-600: #a9b4cc;
+  --color-slate-700: #c7d0e2;
+  --color-slate-800: #dde3ef;
+  --color-slate-900: #f2f5fb;
+
+  --color-brand-50: #11234d;
+  --color-brand-100: #1a3572;
+  --color-brand-200: #25489a;
+  --color-brand-300: #7eaaff;
+  --color-brand-400: #5b8eff;
+  --color-brand-500: #3d78ff;
+  --color-brand-600: #2f6bff;
+  --color-brand-700: #1f55e0;
+
+  --color-blue-50: #0f2147;   --color-blue-100: #16306a;   --color-blue-200: #214690;   --color-blue-600: #6aa0ff;   --color-blue-700: #8db6ff;
+  --color-amber-50: #2a1f0a;  --color-amber-100: #3d2d0e;  --color-amber-200: #6b4e12;  --color-amber-600: #fbbf4a;  --color-amber-700: #fcd27a;
+  --color-emerald-50: #0a2a20; --color-emerald-100: #0f3d2e; --color-emerald-200: #16634a; --color-emerald-600: #34d399; --color-emerald-700: #6ee7b7;
+  --color-violet-50: #1f1742; --color-violet-100: #2c205f; --color-violet-200: #4a3794; --color-violet-600: #a78bfa; --color-violet-700: #c4b5fd;
+  --color-rose-50: #2e0f1a;   --color-rose-100: #451527;   --color-rose-200: #7a2340;   --color-rose-600: #fb7185;   --color-rose-700: #fda4af;
+  --color-teal-50: #0a2828;   --color-teal-100: #0f3b3b;   --color-teal-200: #14605e;   --color-teal-600: #2dd4bf;   --color-teal-700: #5eead4;
 }
+
+:root { color-scheme: dark; }
 
 body {
   @apply bg-slate-50 text-slate-800 antialiased;
+  background-image: radial-gradient(1200px 500px at 70% -10%, rgba(47, 107, 255, 0.12), transparent 60%);
+  background-attachment: fixed;
 }
 
+select option { background: #0f1729; color: #f2f5fb; }
 .tabular { font-variant-numeric: tabular-nums; }

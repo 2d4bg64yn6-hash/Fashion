@@ -31,11 +31,11 @@ export function BarChart({ data, height = 240 }: { data: { label: string; value:
               onMouseLeave={() => setHover(null)}
             >
               <div
-                className={`w-full rounded-t-[4px] transition-colors ${hover === i ? 'bg-brand-600' : 'bg-brand-500/75'}`}
+                className={`w-full rounded-t-[4px] transition-colors ${hover === i ? 'bg-brand-400' : 'bg-gradient-to-t from-brand-600/70 to-brand-400'}`}
                 style={{ height: `${(d.value / nice) * 100}%`, minHeight: d.value ? 2 : 0 }}
               />
               {hover === i && (
-                <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 rounded-lg bg-slate-900 px-2.5 py-1.5 text-xs whitespace-nowrap text-white shadow-lg">
+                <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 rounded-lg bg-slate-200 ring-1 ring-slate-300 px-2.5 py-1.5 text-xs whitespace-nowrap text-white shadow-lg">
                   <div className="text-slate-400">{d.label}</div>
                   <div className="font-semibold tabular">{money(d.value)}</div>
                 </div>

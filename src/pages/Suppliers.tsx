@@ -61,7 +61,7 @@ export default function Suppliers() {
             <ul className="divide-y divide-slate-100 rounded-xl border border-slate-200">
               {purchases.map((p) => (
                 <li key={p.id} onClick={() => go('purchases', `open:${p.id}`)} className="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 hover:bg-slate-50">
-                  <div><p className="text-sm font-medium text-brand-700">{p.number}</p><p className="text-xs text-slate-400">{date(p.date)}</p></div>
+                  <div><p className="text-sm font-medium text-brand-300">{p.number}</p><p className="text-xs text-slate-400">{date(p.date)}</p></div>
                   <div className="flex items-center gap-3"><span className="text-sm font-medium tabular">{money(orderTotal(p.lines))}</span><StatusBadge status={p.status} /></div>
                 </li>
               ))}
